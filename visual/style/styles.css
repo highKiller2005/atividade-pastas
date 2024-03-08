@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+body {
+  --image-width: 1200px;
+  background: linear-gradient(45deg, #fdfdfd, #add5e7);;
+}
+
+.home, .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+  z-index: 10;
+}
+
+.home h1 {
+  font-size: 2.6rem;
+  text-decoration: underline;
+  color: #FF0000;
+}
+
+.home img
+{
+  border-radius: 8px;
+  border: 3px dashed #1e75d9;
+  width: var(--image-width);
+}
+
+.home a {
+  color: #FF0000;
+  font-size: 1.1rem;
+  margin-top: 3px;
+  max-width: 90%;
+  overflow: hidden;
+}
+
+.home .button-group {
+  margin-top: 2rem;
+}
+
+.effect {
+  position: absolute;
+  border-radius: 0px;
+  border: none;
+  width: 78.1875rem;
+  
+  left: calc(50% - 30rem);
+  top: 0;
+  opacity: 0.3;
+  background: linear-gradient(#9089fc, #ff80b5);
+  transform: translate(-50%, 0) rotate(30deg);
+  aspect-ratio: 1155/678;
+  filter: blur(10rem);
+  z-index: 1;
+}
+
+a.button {
+  --button-opacity: 1;
+  border-radius: 0.3rem;
+  padding: 1.2rem 1.6rem;
+  font-size: 1.8rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  background-color: rgb(80 75 220 / var(--button-opacity));
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: background-color 0.2s;
+  max-width: 100%;
+}
+
+a.button:hover {
+  --button-opacity: 0.8;
+  transition: background-color 0s;
+}
+
+a.button svg {
+  fill: white;
+  width: 2rem;
+}
+
+@media screen and (max-width: 400px) {
+  :root {
+    font-size: 56%;
+  }
+
+  body {
+    --image-width: 90%;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  body {
+    --image-width: 300px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  body {
+    --image-width: 400px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  body {
+    --image-width: 600px;
+  }
+}
