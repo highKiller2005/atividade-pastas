@@ -98,13 +98,22 @@ a.button svg {
   width: 2rem;
 }
 
+/*
+ * Pagina Atividade CSS
+ * atividade-pastas/src/estrutura/atividade_css/att.html
+*/
+.att {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 0;
+}
+
 .rainbow {
-  width: 80%;
-  height: 100vh;
-  margin: auto;
+  width: 50%;
+  height: fit-content;
+  margin: 0 auto;
 
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 2rem;
@@ -112,48 +121,169 @@ a.button svg {
   font-size: 3rem;
 }
 
-.rainbow div {
+.rainbow span {
+  --transform: translateX(0%);
   background-color: var(--color);
   color: #FFF;
   padding: 1rem 0.8rem;
   border-radius: 0.8rem;
 
+  width: fit-content;
+
   box-shadow: 2px 2px 3px 0px var(--color);
+  transform: var(--transform);
+
+  animation:
+    rainbow-start 0.4s ease-in var(--delay) both,
+    bounce 0.8s ease-in-out calc(var(--delay) + 0.5s) infinite;
 }
 
-.rainbow div:nth-child(1) {
-  transform: translateX(0px);
+.rainbow span:nth-child(1) {
+  --transform: translateX(0px);
   --color: #ef4444;
+  --delay: 0s;
 }
 
-.rainbow div:nth-child(2) {
-  transform: translateX(10%);
+.rainbow span:nth-child(2) {
+  --transform: translateX(10%);
   --color: #f97316;
+  --delay: 0.2s;
 }
 
-.rainbow div:nth-child(3) {
-  transform: translateX(30%);
+.rainbow span:nth-child(3) {
+  --transform: translateX(30%);
   --color: #f59e0b;
+  --delay: 0.4s;
 }
 
-.rainbow div:nth-child(4) {
-  transform: translateX(50%);
+.rainbow span:nth-child(4) {
+  --transform: translateX(50%);
   --color: #eab308;
+  --delay: 0.6s;
 }
 
-.rainbow div:nth-child(5) {
-  transform: translateX(70%);
+.rainbow span:nth-child(5) {
+  --transform: translateX(70%);
   --color: #84cc16;
+  --delay: 0.8s;
+
 }
 
-.rainbow div:nth-child(6) {
-  transform: translateX(90%);
+.rainbow span:nth-child(6) {
+  --transform: translateX(90%);
   --color: #22c55e;
+  --delay: 1s;
+
 }
 
-.rainbow div:nth-child(7) {
-  transform: translateX(110%);
+.rainbow span:nth-child(7) {
+  --transform: translateX(110%);
   --color: #10b981;
+  --delay: 1.2s;
+}
+
+.go-back {
+  width: fit-content;
+  margin: 0 18%;
+  margin-top: 30px;
+}
+
+.separated-images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.separated-images .image {
+  --image: url('../images/');
+  --transform: translateX(0);
+  --delay: 0s;
+  background-image: var(--image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.3rem;
+  width: 300px;
+  height: 300px;
+  animation: bounce 1.2s ease-in-out calc(var(--delay) + 1s) infinite;
+}
+
+.separated-images .image:nth-child(1) {
+  --image: url('../images/carnaval.jpg');
+  --delay: 0s;
+}
+
+.separated-images .image:nth-child(2) {
+  --image: url('../images/pascoa.webp');
+  --delay: 0.2s;
+}
+
+
+.separated-images .image:nth-child(3) {
+  --image: url('../images/halloween.avif');
+  --delay: 0.4s;
+}
+
+.separated-images .image:nth-child(4) {
+  --image: url('../images/natal.avif');
+  --delay: 0.6s;
+}
+
+.carousel {
+  width: 100%;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 4rem;
+}
+
+.slide {
+  display: flex;
+  width: fit-content;
+  transform: translateX(0%);
+  animation: carousel-effect 30s infinite linear;
+}
+
+.carousel .image {
+  width: 600px;
+  height: 600px;
+}
+
+
+@keyframes rainbow-start {
+  from {
+    transform: translateX(0%) rotate(4deg);
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    transform: var(--transform) rotate(0deg);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: var(--transform) translateY(0%);
+  }
+
+  50% {
+    transform: var(--transform) translateY(-5%);
+  }
+
+  100% {
+    transform: var(--transform) translateY(0%);
+  }
+}
+
+@keyframes carousel-effect {
+  from {
+    transform: translateX(0%);
+  }
+  
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @media screen and (max-width: 400px) {
